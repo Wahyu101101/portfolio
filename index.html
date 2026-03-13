@@ -632,12 +632,16 @@
             <div class="col-lg-6">
               <div class="card-premium">
                 <h3>Send a Message</h3>
-                <form class="contact-form">
-                  <input type="text" placeholder="Your Name" />
-                  <input type="email" placeholder="Email Address" />
-                  <input type="text" placeholder="Subject" />
-                  <textarea rows="4" placeholder="Tell me about your project..."></textarea>
-                  <button type="button" class="btn btn-primary-custom w-100">Send Message <i class="bi bi-send"></i></button>
+                                <form class="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p class="d-none">
+                    <label>Don't fill this out: <input name="bot-field" /></label>
+                  </p>
+                  <input type="text" name="name" placeholder="Your Name" required />
+                  <input type="email" name="email" placeholder="Email Address" required />
+                  <input type="text" name="subject" placeholder="Subject" required />
+                  <textarea name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+                  <button type="submit" class="btn btn-primary-custom w-100">Send Message <i class="bi bi-send"></i></button>
                 </form>
               </div>
             </div>
